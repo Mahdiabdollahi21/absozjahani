@@ -1,44 +1,900 @@
-<div class="product">
-      <img src="hero.png.png" alt="سیستم آبسوز جهانی">
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>نمایندگی رسمی | دستگاه حرفه‌ای</title>
+
+  <meta name="description"
+        content="معرفی دستگاه، اطلاعات تماس و نمایندگی‌های فروش در سراسر کشور">
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --black: #070707;
+      --black2: #101010;
+      --gold: #d4af37;
+      --gold-light: #f3d675;
+      --text: #ffffff;
+      --muted: #aaa;
+      --border: rgba(212,175,55,0.25);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Vazirmatn', sans-serif;
+      background: var(--black);
+      color: var(--text);
+      line-height: 1.9;
+    }
+
+    /* نوار بالا */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(7,7,7,0.94);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav {
+      max-width: 1200px;
+      margin: auto;
+      padding: 15px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      color: var(--gold);
+      font-size: 22px;
+      font-weight: 900;
+      text-decoration: none;
+    }
+
+    nav {
+      display: flex;
+      gap: 28px;
+    }
+
+    nav a {
+      color: #ddd;
+      text-decoration: none;
+      transition: .3s;
+      font-size: 14px;
+    }
+
+    nav a:hover {
+      color: var(--gold);
+    }
+
+    /* Hero */
+    .hero {
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 80% 30%, rgba(212,175,55,.13), transparent 35%),
+        radial-gradient(circle at 20% 80%, rgba(212,175,55,.07), transparent 30%),
+        #070707;
+    }
+
+    .hero-container {
+      max-width: 1200px;
+      width: 100%;
+      margin: auto;
+      padding: 70px 20px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 60px;
+    }
+
+    .hero-text {
+      order: 1;
+    }
+
+    .hero-image {
+      order: 2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 6px 16px;
+      border: 1px solid var(--gold);
+      color: var(--gold-light);
+      border-radius: 30px;
+      font-size: 13px;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: clamp(35px, 5vw, 62px);
+      line-height: 1.3;
+      font-weight: 900;
+      margin-bottom: 20px;
+    }
+
+    h1 span {
+      color: var(--gold);
+    }
+
+    .hero-text p {
+      color: #bbb;
+      font-size: 17px;
+      max-width: 600px;
+      margin-bottom: 30px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      padding: 12px 25px;
+      border-radius: 8px;
+      font-weight: 700;
+      transition: .3s;
+    }
+
+    .btn-gold {
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      color: #080808;
+    }
+
+    .btn-gold:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(212,175,55,.2);
+    }
+
+    .btn-dark {
+      border: 1px solid var(--border);
+      color: white;
+      background: #111;
+    }
+
+    .btn-dark:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    .device-box {
+      width: min(100%, 500px);
+      min-height: 430px;
+      border: 1px solid var(--border);
+      border-radius: 25px;
+      background:
+        linear-gradient(145deg, rgba(255,255,255,.04), rgba(255,255,255,.01));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 25px;
+      position: relative;
+      box-shadow:
+        0 0 70px rgba(212,175,55,.08),
+        inset 0 0 50px rgba(212,175,55,.03);
+    }
+
+    .device-box::before {
+      content: "";
+      position: absolute;
+      inset: 15px;
+      border: 1px solid rgba(212,175,55,.1);
+      border-radius: 18px;
+      pointer-events: none;
+    }
+
+    .device-box img {
+      width: 100%;
+      max-height: 390px;
+      object-fit: contain;
+      border-radius: 15px;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Sections */
+    section {
+      padding: 90px 20px;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 55px;
+    }
+
+    .section-title small {
+      color: var(--gold);
+      font-weight: 700;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .section-title h2 {
+      font-size: 35px;
+      font-weight: 900;
+    }
+
+    .section-title p {
+      color: var(--muted);
+      margin-top: 8px;
+    }
+
+    /* ویژگی ها */
+    .features {
+      background: #0c0c0c;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .feature {
+      padding: 30px 25px;
+      background: #111;
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      transition: .3s;
+    }
+
+    .feature:hover {
+      transform: translateY(-6px);
+      border-color: var(--gold);
+    }
+
+    .icon {
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(212,175,55,.1);
+      border: 1px solid var(--border);
+      color: var(--gold);
+      border-radius: 12px;
+      font-size: 22px;
+      margin-bottom: 18px;
+    }
+
+    .feature h3 {
+      color: var(--gold-light);
+      margin-bottom: 8px;
+      font-size: 18px;
+    }
+
+    .feature p {
+      color: #999;
+      font-size: 14px;
+    }
+
+    /* معرفی */
+    .about {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .about h2 {
+      font-size: 35px;
+      margin-bottom: 20px;
+    }
+
+    .about h2 span {
+      color: var(--gold);
+    }
+
+    .about p {
+      color: #aaa;
+      margin-bottom: 15px;
+    }
+
+    .about-list {
+      list-style: none;
+      margin-top: 25px;
+    }
+
+    .about-list li {
+      padding: 8px 0;
+      color: #ddd;
+    }
+
+    .about-list li::before {
+      content: "✓";
+      color: var(--gold);
+      font-weight: bold;
+      margin-left: 10px;
+    }
+
+    .gold-card {
+      padding: 40px;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      background: linear-gradient(145deg, #131313, #0a0a0a);
+      text-align: center;
+    }
+
+    .gold-card .number {
+      color: var(--gold);
+      font-size: 55px;
+      font-weight: 900;
+      line-height: 1.2;
+    }
+
+    .gold-card p {
+      margin: 0;
+    }
+
+    /* نمایندگی */
+    .representatives {
+      background: #0b0b0b;
+    }
+
+    .representative-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+    }
+
+    .rep {
+      background: #121212;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+      transition: .3s;
+    }
+
+    .rep:hover {
+      border-color: var(--gold);
+      transform: translateY(-3px);
+    }
+
+    .rep h3 {
+      font-size: 16px;
+      color: #fff;
+      margin-bottom: 3px;
+    }
+
+    .rep span {
+      font-size: 13px;
+      color: var(--gold);
+    }
+
+    .call {
+      min-width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--gold);
+      color: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      font-size: 18px;
+      transition: .3s;
+    }
+
+    .call:hover {
+      transform: scale(1.1);
+      background: var(--gold-light);
+    }
+
+    /* تماس */
+    .contact {
+      text-align: center;
+      background:
+        radial-gradient(circle, rgba(212,175,55,.1), transparent 55%),
+        #070707;
+    }
+
+    .contact-box {
+      max-width: 800px;
+      margin: auto;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 50px 25px;
+      background: #0d0d0d;
+    }
+
+    .contact-box h2 {
+      font-size: 35px;
+      margin-bottom: 10px;
+    }
+
+    .contact-box h2 span {
+      color: var(--gold);
+    }
+
+    .contact-box p {
+      color: #aaa;
+      margin-bottom: 25px;
+    }
+
+    .main-phone {
+      display: inline-block;
+      direction: ltr;
+      color: var(--gold-light);
+      font-size: 27px;
+      font-weight: 800;
+      text-decoration: none;
+      margin-bottom: 25px;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      background: #050505;
+      padding: 30px 20px;
+      text-align: center;
+    }
+
+    footer .logo {
+      display: inline-block;
+      margin-bottom: 8px;
+    }
+
+    footer p {
+      color: #666;
+      font-size: 13px;
+    }
+
+    /* موبایل */
+    @media (max-width: 850px) {
+
+      nav {
+        display: none;
+      }
+
+      .hero-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 35px;
+      }
+
+      .hero-text {
+        order: 1;
+      }
+
+      .hero-image {
+        order: 2;
+      }
+
+      .buttons {
+        justify-content: center;
+      }
+
+      .feature-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about {
+        grid-template-columns: 1fr;
+      }
+
+      .representative-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section-title h2,
+      .about h2,
+      .contact-box h2 {
+        font-size: 28px;
+      }
+
+      .device-box {
+        min-height: 300px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="nav">
+
+      <a href="#" class="logo">
+        نام برند شما
+      </a>
+
+      <nav>
+        <a href="#home">خانه</a>
+        <a href="#features">ویژگی‌ها</a>
+        <a href="#about">درباره دستگاه</a>
+        <a href="#representatives">نمایندگی‌ها</a>
+        <a href="#contact">تماس با ما</a>
+      </nav>
+
+    </div>
+  </header>
+
+
+  <!-- Hero -->
+  <section class="hero" id="home">
+
+    <div class="hero-container">
+
+      <div class="hero-text">
+
+        <span class="badge">
+          محصولی حرفه‌ای و قابل اعتماد
+        </span>
+
+        <h1>
+          قدرت و کیفیت در
+          <span>یک دستگاه</span>
+        </h1>
+
+        <p>
+          دستگاه حرفه‌ای با طراحی مدرن، عملکرد قدرتمند
+          و پشتیبانی از طریق شبکه نمایندگی‌های ما در سراسر کشور.
+        </p>
+
+        <div class="buttons">
+
+          <a href="#representatives" class="btn btn-gold">
+            مشاهده نمایندگی‌ها
+          </a>
+
+          <a href="tel:+989909075219" class="btn btn-dark">
+            ☎ تماس مستقیم
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <div class="hero-image">
+
+        <div class="device-box">
+
+          <!-- عکس دستگاه را با نام device.jpg در گیت‌هاب قرار بده -->
+          <img
+            src="device.jpg"
+            alt="دستگاه"
+            onerror="this.style.display='none'; this.parentElement.innerHTML += '<div style=\'color:#d4af37;font-size:20px;text-align:center\'>عکس دستگاه<br><small style=\'color:#777;font-size:13px\'>device.jpg را در کنار index.html قرار دهید</small></div>';"
+          >
+
+        </div>
+
+      </div>
+
     </div>
 
   </section>
 
-  <section class="features" id="about">
 
-    <h2>
-      چرا <span class="blue">آبسوز جهانی؟</span>
-    </h2>
+  <!-- Features -->
+  <section class="features" id="features">
 
-    <div class="cards">
+    <div class="container">
 
-      <div class="card">
-        <div class="icon">🛡️</div>
-        <h3>ایمنی بالا</h3>
-        <p>طراحی با تمرکز بر ایمنی و عملکرد مناسب سیستم.</p>
+      <div class="section-title">
+        <small>مزایای محصول</small>
+        <h2>چرا این دستگاه؟</h2>
+        <p>ترکیبی از کیفیت، قدرت و پشتیبانی حرفه‌ای</p>
       </div>
 
-      <div class="card">
-        <div class="icon">⚙️</div>
-        <h3>نصب آسان</h3>
-        <p>طراحی ساده برای نصب و استفاده راحت‌تر.</p>
-      </div>
 
-      <div class="card">
-        <div class="icon">🏆</div>
-        <h3>کیفیت</h3>
-        <p>تمرکز بر کیفیت ساخت و ارائه خدمات حرفه‌ای.</p>
-      </div>
+      <div class="feature-grid">
 
-      <div class="card">
-        <div class="icon">📞</div>
-        <h3>پشتیبانی</h3>
-        <p>پاسخگویی و پشتیبانی برای مشتریان.</p>
+        <div class="feature">
+          <div class="icon">⚡</div>
+          <h3>عملکرد قدرتمند</h3>
+          <p>
+            عملکرد سریع و قابل اعتماد برای استفاده حرفه‌ای.
+          </p>
+        </div>
+
+        <div class="feature">
+          <div class="icon">◆</div>
+          <h3>کیفیت ساخت بالا</h3>
+          <p>
+            طراحی مستحکم و استفاده از قطعات با کیفیت.
+          </p>
+        </div>
+
+        <div class="feature">
+          <div class="icon">✓</div>
+          <h3>پشتیبانی مطمئن</h3>
+          <p>
+            پشتیبانی و ارتباط مستقیم با نمایندگی‌های سراسر کشور.
+          </p>
+        </div>
+
       </div>
 
     </div>
 
   </section>
+
+
+  <!-- About -->
+  <section id="about">
+
+    <div class="container">
+
+      <div class="about">
+
+        <div>
+
+          <h2>
+            انتخابی برای
+            <span>حرفه‌ای‌ها</span>
+          </h2>
+
+          <p>
+            این محصول با هدف ارائه عملکرد بالا، کیفیت مناسب
+            و تجربه‌ای مطمئن برای کاربران طراحی شده است.
+          </p>
+
+          <ul class="about-list">
+
+            <li>طراحی حرفه‌ای و مدرن</li>
+            <li>کیفیت و دوام بالا</li>
+            <li>پشتیبانی از طریق نمایندگی‌ها</li>
+            <li>امکان تماس مستقیم با کارشناسان</li>
+
+          </ul>
+
+        </div>
+
+
+        <div class="gold-card">
+
+          <div class="number">100%</div>
+
+          <p>
+            تمرکز ما بر کیفیت و رضایت مشتری
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- Representatives -->
+  <section class="representatives" id="representatives">
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <small>ارتباط با ما</small>
+
+        <h2>نمایندگی‌های سراسر کشور</h2>
+
+        <p>
+          برای خرید و دریافت اطلاعات با نمایندگی منطقه خود تماس بگیرید.
+        </p>
+
+      </div>
+
+
+      <div class="representative-grid">
+
+
+        <!-- زنجان -->
+        <div class="rep">
+          <div>
+            <h3>زنجان</h3>
+            <span dir="ltr">+98 990 907 5219</span>
+          </div>
+
+          <a class="call" href="tel:+989909075219">☎</a>
+        </div>
+
+
+        <!-- آمل -->
+        <div class="rep">
+          <div>
+            <h3>آمل</h3>
+            <span dir="ltr">09120731639</span>
+          </div>
+
+          <a class="call" href="tel:09120731639">☎</a>
+        </div>
+
+
+        <!-- تهران -->
+        <div class="rep">
+          <div>
+            <h3>تهران</h3>
+            <span dir="ltr">09194368064</span>
+          </div>
+
+          <a class="call" href="tel:09194368064">☎</a>
+        </div>
+
+
+        <!-- لرستان -->
+        <div class="rep">
+          <div>
+            <h3>لرستان</h3>
+            <span dir="ltr">09385080791</span>
+          </div>
+
+          <a class="call" href="tel:09385080791">☎</a>
+        </div>
+
+
+        <!-- کرمان -->
+        <div class="rep">
+          <div>
+            <h3>کرمان</h3>
+            <span dir="ltr">09103453969</span>
+          </div>
+
+          <a class="call" href="tel:09103453969">☎</a>
+        </div>
+
+
+        <!-- کرمانشاه -->
+        <div class="rep">
+          <div>
+            <h3>کرمانشاه</h3>
+            <span dir="ltr">09185085333</span>
+          </div>
+
+          <a class="call" href="tel:09185085333">☎</a>
+        </div>
+
+
+        <!-- اردبیل -->
+        <div class="rep">
+          <div>
+            <h3>اردبیل</h3>
+            <span dir="ltr">09143531201</span>
+          </div>
+
+          <a class="call" href="tel:09143531201">☎</a>
+        </div>
+
+
+        <!-- هرمزگان -->
+        <div class="rep">
+          <div>
+            <h3>هرمزگان</h3>
+            <span dir="ltr">09904964659</span>
+          </div>
+
+          <a class="call" href="tel:09904964659">☎</a>
+        </div>
+
+
+        <!-- خراسان -->
+        <div class="rep">
+          <div>
+            <h3>خراسان</h3>
+            <span dir="ltr">09119121902</span>
+          </div>
+
+          <a class="call" href="tel:+989119121902">☎</a>
+        </div>
+
+
+        <!-- سیستان و بلوچستان -->
+        <div class="rep">
+          <div>
+            <h3>سیستان و بلوچستان</h3>
+            <span dir="ltr">09131476819</span>
+          </div>
+
+          <a class="call" href="tel:+989131476819">☎</a>
+        </div>
+
+
+        <!-- ارومیه -->
+        <div class="rep">
+          <div>
+            <h3>ارومیه</h3>
+            <span dir="ltr">09054358576</span>
+          </div>
+
+          <a class="call" href="tel:+989054358576">☎</a>
+        </div>
+
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- Contact -->
+  <section class="contact" id="contact">
+
+    <div class="container">
+
+      <div class="contact-box">
+
+        <h2>
+          آماده همکاری و
+          <span>پاسخگویی</span> هستیم
+        </h2>
+
+        <p>
+          برای دریافت اطلاعات بیشتر، خرید یا ارتباط با ما تماس بگیرید.
+        </p>
+
+        <a
+          href="tel:+989909075219"
+          class="main-phone"
+        >
+          +98 990 907 5219
+        </a>
+
+        <br>
+
+        <a
+          href="tel:+989909075219"
+          class="btn btn-gold"
+        >
+          تماس با ما
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- Footer -->
+  <footer>
+
+    <a href="#" class="logo">
+      نام برند شما
+    </a>
+
+    <p>
+      © 2026 تمامی حقوق محفوظ است.
+    </p>
+
+  </footer>
 
 </body>
 </html>
